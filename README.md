@@ -1,4 +1,4 @@
-# 🦠 Network Traffic Analysis of Ransomware Activity in the Healthcare Sector
+# Network Traffic Analysis of Ransomware Activity in the Healthcare Sector
 
 <p align="center">
   <img src="https://img.shields.io/badge/Conference-SAC%202025-red?style=for-the-badge&logo=academia&logoColor=white" />
@@ -7,12 +7,12 @@
   <img src="https://img.shields.io/badge/Domain-Healthcare%20Security-green?style=for-the-badge&logo=health&logoColor=white" />
 </p>
 
-> 🎤 **Presented at the 28th Student Academic Conference (SAC 2025)**  
+> **Presented at the 28th Student Academic Conference (SAC 2025)**  
 > Minnesota State University Moorhead
 
 ---
 
-## 📌 Overview
+## Overview
 
 This research project investigates ransomware-related network activity in a **healthcare environment** through deep packet capture analysis using **Wireshark** and adversary behavior mapping using the **MITRE ATT&CK framework**.
 
@@ -20,7 +20,7 @@ Healthcare networks face unique ransomware risks due to critical patient data an
 
 ---
 
-## 👥 Authors
+## Authors
 
 | Name | Institution |
 |------|------------|
@@ -29,7 +29,7 @@ Healthcare networks face unique ransomware risks due to critical patient data an
 
 ---
 
-## 🎯 Research Objectives
+## Research Objectives
 
 - Capture and analyze ransomware-related network traffic in a healthcare simulation
 - Identify Indicators of Compromise (IoCs) from PCAP data
@@ -38,7 +38,7 @@ Healthcare networks face unique ransomware risks due to critical patient data an
 
 ---
 
-## 🛠️ Tools & Technologies
+## Tools & Technologies
 
 | Tool | Purpose |
 |------|---------|
@@ -50,9 +50,9 @@ Healthcare networks face unique ransomware risks due to critical patient data an
 
 ---
 
-## 🔍 Key Findings
+## Key Findings
 
-### 1. 🔑 Credential Exposure (Cleartext FTP)
+### 1. Credential Exposure (Cleartext FTP)
 FTP credentials were transmitted in plaintext — a critical security failure in a healthcare network:
 ```
 USER: jane
@@ -62,7 +62,7 @@ PASS: pwd2345
 
 ---
 
-### 2. 📡 Command & Control (C2) Activity
+### 2. Command & Control (C2) Activity
 Observed suspicious HTTPS communication with an external IP address:
 ```
 External C2 IP: 20.59.87.225
@@ -71,14 +71,14 @@ External C2 IP: 20.59.87.225
 
 ---
 
-### 3. 📤 File Exfiltration
+### 3. File Exfiltration
 FTP `STOR` commands confirmed unauthorized file uploads indicating active data exfiltration:
 
 **MITRE Technique:** T1048.003 — Exfiltration Over Alternative Protocol
 
 ---
 
-### 4. 🔄 Lateral Movement
+### 4. Lateral Movement
 Internal host communications indicated adversary movement between machines:
 ```
 10.0.2.4 ↔ 10.0.2.15
@@ -87,7 +87,7 @@ Internal host communications indicated adversary movement between machines:
 
 ---
 
-## 🗺️ MITRE ATT&CK Mapping
+## MITRE ATT&CK Mapping
 
 | Tactic | Technique ID | Technique Name | Observed Evidence |
 |--------|-------------|----------------|-------------------|
@@ -99,10 +99,10 @@ Internal host communications indicated adversary movement between machines:
 
 ---
 
-## 📁 Repository Contents
+## Repository Contents
 
 ```
-📦 Ransomware-network-traffic-analysis-using-mitre-attack-Wireshark
+Ransomware-network-traffic-analysis-using-mitre-attack-Wireshark
 ├── 📄 README.md                              ← You are here
 ├── 📋 Abstract_Hashan Kodippilige_SAC.pdf    ← SAC 2025 Conference Abstract
 └── 📊 Network Traffic Analysis_Hashan.pdf    ← Full Analysis Report
@@ -110,7 +110,7 @@ Internal host communications indicated adversary movement between machines:
 
 ---
 
-## 💡 Key Takeaways for Blue Team Analysts
+## Key Takeaways for Blue Team Analysts
 
 1. **Monitor FTP traffic** — cleartext protocols should never be used in healthcare networks
 2. **Baseline internal traffic** — lateral movement becomes visible when normal patterns are known
@@ -119,7 +119,7 @@ Internal host communications indicated adversary movement between machines:
 
 ---
 
-## 🏥 Why Healthcare?
+## Why Healthcare?
 
 Healthcare organizations are among the most targeted ransomware victims due to:
 - Critical patient data with high ransom value
@@ -131,20 +131,20 @@ This study contributes to the growing body of research on sector-specific ransom
 
 ---
 
-## 🎤 Conference
+## Conference
 
 **28th Student Academic Conference (SAC 2025)**  
 Minnesota State University Moorhead — Spring 2025
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 All traffic analysis was performed on authorized lab environments and public PCAP datasets for academic and cybersecurity research purposes only. No real patient data was used or accessed.
 
 ---
 
-## 👤 Author
+## Author
 
 **Hashan Kodippilige**  
 M.S. Cybersecurity — Minnesota State University Moorhead  
