@@ -1,92 +1,153 @@
-# Network Traffic Analysis of Ransomware Activity in the Healthcare Sector Using Wireshark and MITRE ATT&CK
+# 🦠 Network Traffic Analysis of Ransomware Activity in the Healthcare Sector
 
-## Conference Presentation
+<p align="center">
+  <img src="https://img.shields.io/badge/Conference-SAC%202025-red?style=for-the-badge&logo=academia&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tool-Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white" />
+  <img src="https://img.shields.io/badge/Framework-MITRE%20ATT%26CK-E22C2C?style=for-the-badge&logo=target&logoColor=white" />
+  <img src="https://img.shields.io/badge/Domain-Healthcare%20Security-green?style=for-the-badge&logo=health&logoColor=white" />
+</p>
 
-🎤 Presented at the 28th Student Academic Conference (SAC 2025)
-Minnesota State University Moorhead
+> 🎤 **Presented at the 28th Student Academic Conference (SAC 2025)**  
+> Minnesota State University Moorhead
 
-## Authors
+---
 
-- Hashan Kodippilige
-- A. Nwaigwe
+## 📌 Overview
 
-## Overview
+This research project investigates ransomware-related network activity in a **healthcare environment** through deep packet capture analysis using **Wireshark** and adversary behavior mapping using the **MITRE ATT&CK framework**.
 
-This project investigates ransomware-related network activity in a healthcare environment through packet capture analysis using Wireshark and adversary behavior mapping using the MITRE ATT&CK framework.
+Healthcare networks face unique ransomware risks due to critical patient data and operational dependencies. This study demonstrates how network traffic analysis can serve as an early warning system for ransomware intrusions by identifying Indicators of Compromise (IoCs) before significant damage occurs.
 
-The analysis focused on identifying Indicators of Compromise (IoCs), credential exposure, command-and-control communications, file exfiltration, and lateral movement behavior.
+---
 
-## Research Objectives
+## 👥 Authors
 
-- Analyze ransomware-related network traffic
-- Identify Indicators of Compromise (IoCs)
-- Map observed activity to MITRE ATT&CK tactics and techniques
-- Demonstrate how network traffic analysis can support threat detection
+| Name | Institution |
+|------|------------|
+| Hashan Kodippilige | Minnesota State University Moorhead |
+| Dr. A. Nwaigwe | Minnesota State University Moorhead |
 
-## Tools Used
+---
 
-- Wireshark
-- MITRE ATT&CK Framework
-- PCAP Analysis
-- TCP Stream Analysis
+## 🎯 Research Objectives
 
-## Key Findings
+- Capture and analyze ransomware-related network traffic in a healthcare simulation
+- Identify Indicators of Compromise (IoCs) from PCAP data
+- Map observed adversary behaviors to MITRE ATT&CK tactics and techniques
+- Demonstrate how Blue Team analysts can use traffic analysis for proactive threat detection
 
-### Credential Exposure
+---
 
-FTP credentials were transmitted in cleartext:
+## 🛠️ Tools & Technologies
 
+| Tool | Purpose |
+|------|---------|
+| Wireshark | Packet capture and traffic analysis |
+| MITRE ATT&CK Framework | Adversary behavior mapping |
+| PCAP Analysis | Network traffic examination |
+| TCP Stream Analysis | Session reconstruction |
+| FTP / HTTPS Protocol Analysis | C2 and exfiltration detection |
+
+---
+
+## 🔍 Key Findings
+
+### 1. 🔑 Credential Exposure (Cleartext FTP)
+FTP credentials were transmitted in plaintext — a critical security failure in a healthcare network:
+```
 USER: jane
 PASS: pwd2345
+```
+**MITRE Technique:** T1078 — Valid Accounts | T1552.001 — Credentials in Files
 
-### Command and Control Activity
+---
 
-Observed HTTPS communication with external IP:
+### 2. 📡 Command & Control (C2) Activity
+Observed suspicious HTTPS communication with an external IP address:
+```
+External C2 IP: 20.59.87.225
+```
+**MITRE Technique:** T1071.001 — Application Layer Protocol: Web Protocols
 
-20.59.87.225
+---
 
-### File Exfiltration
+### 3. 📤 File Exfiltration
+FTP `STOR` commands confirmed unauthorized file uploads indicating active data exfiltration:
 
-FTP STOR commands confirmed file uploads and potential data exfiltration.
+**MITRE Technique:** T1048.003 — Exfiltration Over Alternative Protocol
 
-### Lateral Movement
+---
 
-Internal communications indicated movement between hosts:
-
+### 4. 🔄 Lateral Movement
+Internal host communications indicated adversary movement between machines:
+```
 10.0.2.4 ↔ 10.0.2.15
+```
+**MITRE Technique:** T1021 — Remote Services
 
-## MITRE ATT&CK Mapping
+---
 
-- Initial Access
-- Credential Access
-- Command and Control
-- Lateral Movement
-- Exfiltration
+## 🗺️ MITRE ATT&CK Mapping
 
-## Skills Demonstrated
+| Tactic | Technique ID | Technique Name | Observed Evidence |
+|--------|-------------|----------------|-------------------|
+| Initial Access | T1566 | Phishing | Inferred from traffic patterns |
+| Credential Access | T1552.001 | Cleartext Credentials | FTP USER/PASS in plaintext |
+| Command & Control | T1071.001 | Web Protocols (HTTPS) | Traffic to 20.59.87.225 |
+| Lateral Movement | T1021 | Remote Services | Internal host hopping |
+| Exfiltration | T1048.003 | Exfiltration via FTP | FTP STOR commands observed |
 
-- Network Traffic Analysis
-- Threat Hunting
-- Cyber Threat Intelligence
-- MITRE ATT&CK Mapping
-- Incident Investigation
-- Wireshark Analysis
+---
 
-## Conference
+## 📁 Repository Contents
 
-Presented at:
+```
+📦 Ransomware-network-traffic-analysis-using-mitre-attack-Wireshark
+├── 📄 README.md                              ← You are here
+├── 📋 Abstract_Hashan Kodippilige_SAC.pdf    ← SAC 2025 Conference Abstract
+└── 📊 Network Traffic Analysis_Hashan.pdf    ← Full Analysis Report
+```
 
-28th Student Academic Conference (SAC 2025)
-Minnesota State University Moorhead
+---
 
-## Files
+## 💡 Key Takeaways for Blue Team Analysts
 
-- SAC Abstract
-- Presentation Slides
-- Supporting Analysis Material
+1. **Monitor FTP traffic** — cleartext protocols should never be used in healthcare networks
+2. **Baseline internal traffic** — lateral movement becomes visible when normal patterns are known
+3. **Block unauthorized external IPs** — C2 communication can be disrupted at the perimeter
+4. **Use MITRE ATT&CK actively** — mapping IoCs to techniques accelerates incident response
 
-## Author
+---
 
-Hashan Kodippilige
-Master of Science in Cybersecurity
-Minnesota State University Moorhead
+## 🏥 Why Healthcare?
+
+Healthcare organizations are among the most targeted ransomware victims due to:
+- Critical patient data with high ransom value
+- Operational pressure to restore services quickly
+- Often-outdated network infrastructure
+- Strict regulatory compliance requirements (HIPAA)
+
+This study contributes to the growing body of research on sector-specific ransomware defense strategies.
+
+---
+
+## 🎤 Conference
+
+**28th Student Academic Conference (SAC 2025)**  
+Minnesota State University Moorhead — Spring 2025
+
+---
+
+## ⚠️ Disclaimer
+
+All traffic analysis was performed on authorized lab environments and public PCAP datasets for academic and cybersecurity research purposes only. No real patient data was used or accessed.
+
+---
+
+## 👤 Author
+
+**Hashan Kodippilige**  
+M.S. Cybersecurity — Minnesota State University Moorhead  
+📧 hashansharindu@gmail.com  
+🔗 [LinkedIn](https://www.linkedin.com/in/hashankodippilige/)  
+🐙 [GitHub](https://github.com/hashan-kodippilige)
